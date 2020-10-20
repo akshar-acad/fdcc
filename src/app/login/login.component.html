@@ -13,5 +13,7 @@
 
         <button class="btn btn-sm btn-primary  " type="submit ">Sign in</button>
         <hr>
+        <div *ngIf="error" class="alert alert-danger mt-3 ">{{error}}</div>
+
     </form>
 </body>

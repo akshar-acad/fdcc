@@ -12,40 +12,38 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  returnUrl='view-users';
+  error = '';
+  url=''
 
-  constructor(private formBuilder: FormBuilder,
+
+  constructor(private authenticationService: AuthService,
+    private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router,
-    private authenticationService: AuthService) { 
+    private router: Router) { 
+
       this.authenticationService.logout();
 
     }
 
   ngOnInit(): void {  
     this.loginForm = this.formBuilder.group({
-    username: ['', Validators.required],
-    password: ['', Validators.required]
+    username: [''],
+    password: ['' ]
 });
+this.url = this.route.snapshot.queryParams['returnUrl'] || '/view-users';
+
   }
-  get f() { return this.loginForm.controls; }
 
   onSubmit() {
-    
-
-    // stop here if form is invalid
-    //if (this.loginForm.invalid) {
-      //  return;
-    // }
-
-    this.authenticationService.login(this.f.username.value, this.f.password.value)
+        this.authenticationService.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value)
         .pipe(first())
         .subscribe(
             data => {
-                this.router.navigate([this.returnUrl]);
+                this.router.navigate([this.url]);
             },
             error => {
-                console.log(error)
+                this.error=error;
+
             });
 }
 }

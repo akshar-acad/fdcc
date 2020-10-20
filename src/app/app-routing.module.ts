@@ -5,6 +5,7 @@ import { ViewUsersComponent } from './view-users/view-users.component';
 import { ModifyUserComponent } from './modify-user/modify-user.component';
 import { UserResolveServiceService } from './resolvers/user-resolve-service.service';
 import { AuthGuard } from './auth.guard';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
@@ -32,7 +33,9 @@ canActivate: [AuthGuard],
 resolve: {
   user: UserResolveServiceService
 }               
-}
+},
+{path: '404', component: NotFoundComponent},
+{path: '**', redirectTo: '/404'}
 
 ];
 

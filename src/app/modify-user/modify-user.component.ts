@@ -6,6 +6,8 @@ import {FormsModule, Form} from '@angular/forms';
 import { User } from '../models/user';
 import { NgForm } from '@angular/forms';
 import { Router, ParamMap } from '@angular/router';
+declare var $: any; 
+
 @Component({
   selector: 'app-modify-user',
   templateUrl: './modify-user.component.html',
@@ -13,6 +15,7 @@ import { Router, ParamMap } from '@angular/router';
 })
 export class ModifyUserComponent implements OnInit {
   status:any=true;
+  
   user:User;
   id:string;
   currency:string
@@ -20,7 +23,6 @@ export class ModifyUserComponent implements OnInit {
     private route: ActivatedRoute,  private router: Router ) { }
     
   ngOnInit(): void {
-    console.log(JSON.parse(this.route.snapshot.data.user))
     this.user = JSON.parse(this.route.snapshot.data.user);
     this.id =  this.user.user_id;
     this.currency =this.user.order_total.currency;
@@ -28,9 +30,13 @@ export class ModifyUserComponent implements OnInit {
   }
 
   onSubmit(value: NgForm) {
+    $("#saveModal").modal("hide");
     this._userService.saveUser(value,this.id).subscribe(x=>console.log(x))
+    this.router.navigate(['/view-users']);
+
   }
   onDelete(){
+    $("#deleteModal").modal("hide");
     this._userService.deleteUser(this.id).subscribe(x=>console.log(x))
     this.router.navigate(['/view-users']);
 

@@ -14,6 +14,7 @@ import { NavbarComponent } from './navbar/navbar.component'
 import { UserResolveServiceService } from './resolvers/user-resolve-service.service';
 import { CustomSearchPipe } from './pipes/custom-search.pipe';
 import { AddressPipe } from './pipes/address.pipe';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AddressPipe } from './pipes/address.pipe';
     ModifyUserComponent,
     NavbarComponent,
     CustomSearchPipe,
-    AddressPipe
+    AddressPipe,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

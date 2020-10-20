@@ -9,10 +9,6 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class UserService {
-
-  //private _getAllUsersUrl = "http://localhost:3000/users/all";
-  //private _getUserUrl='http://localhost:3000/users/';
-
   private _getAllUsersUrl =environment.apiUrl+'/users/all'
   private _getUserUrl=environment.apiUrl+'/users/'
 
@@ -24,23 +20,18 @@ export class UserService {
 }
     getUser(id) 
     {
-          console.log(id)
           return this._http.get(this._getUserUrl+id)
         .pipe(map((response: Response) => (JSON.stringify(response))));
 }
 saveUser(value,user_id) 
 {
-      console.log(user_id)
       value=(value)
       value={user_id,...value}
-      console.log("su")
-      console.log(value)
       return this._http.post(this._getUserUrl+'save',value)
     .pipe(map((response: Response) => (JSON.stringify(response))));
 }
 deleteUser(user_id) 
 {
-      console.log(user_id)
       return this._http.delete(this._getUserUrl+user_id)
     .pipe(map((response: Response) => (JSON.stringify(response))));
 }

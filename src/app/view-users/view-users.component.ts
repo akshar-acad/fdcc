@@ -9,7 +9,6 @@ import { UserService } from '../services/user.service';
 })
 export class ViewUsersComponent implements OnInit {
   searchKey:string;
-  //filterBy=''
   data:any;
   users:any;
  constructor(private _userService: UserService, private http: HttpClient,

@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment';
 import {  of, throwError } from 'rxjs';
 import { User } from '../models/user';
 
-const user: any = { id: 999, first_name: 'demoAuthUser_firstname', last_name: 'demoAuthUser_lastname' };
+const user: any = { id: 999, first_name: 'John', last_name: 'smith' };
 
 
 @Injectable({ providedIn: 'root' })
@@ -36,7 +36,6 @@ export class AuthService {
     }
 
     logout() {
-        // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
     }

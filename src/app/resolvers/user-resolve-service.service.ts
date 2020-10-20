@@ -11,7 +11,6 @@ export class UserResolveServiceService implements Resolve<any>{
   constructor(private _userService: UserService) { }
 
   resolve(route: ActivatedRouteSnapshot,state: RouterStateSnapshot): Observable<any> {
-    console.log(this._userService.getUser(route.paramMap.get('user_id')))
     return this._userService.getUser(route.paramMap.get('user_id'));
   }
 }
