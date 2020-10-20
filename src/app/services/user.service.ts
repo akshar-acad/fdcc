@@ -13,7 +13,7 @@ export class UserService {
   //private _getUserUrl='http://localhost:3000/users/';
 
   private _getAllUsersUrl = "https://akshar-acad-fdcc-server-1.glitch.me/users/all";
-  private _getUserUrl='https://akshar-acad-fdcc-server-1.glitch.me/users';
+  private _getUserUrl='https://akshar-acad-fdcc-server-1.glitch.me/users/';
 
   constructor(private _http: HttpClient) { }
    getAllUsers() 
