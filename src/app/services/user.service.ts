@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
 import {Observable} from 'rxjs';
 import { HttpParams } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,8 @@ export class UserService {
   //private _getAllUsersUrl = "http://localhost:3000/users/all";
   //private _getUserUrl='http://localhost:3000/users/';
 
-  private _getAllUsersUrl = "https://akshar-acad-fdcc-server-1.glitch.me/users/all";
-  private _getUserUrl='https://akshar-acad-fdcc-server-1.glitch.me/users/';
+  private _getAllUsersUrl =environment.apiUrl+'/users/all'
+  private _getUserUrl=environment.apiUrl+'/users/'
 
   constructor(private _http: HttpClient) { }
    getAllUsers() 
