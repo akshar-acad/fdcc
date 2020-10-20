@@ -9,8 +9,12 @@ import { HttpParams } from '@angular/common/http';
 })
 export class UserService {
 
-  private _getAllUsersUrl = "http://localhost:3000/users/all";
-  private _getUserUrl='http://localhost:3000/users/';
+  //private _getAllUsersUrl = "http://localhost:3000/users/all";
+  //private _getUserUrl='http://localhost:3000/users/';
+
+  private _getAllUsersUrl = "https://akshar-acad-fdcc-server-1.glitch.me/users/all";
+  private _getUserUrl='https://akshar-acad-fdcc-server-1.glitch.me/users';
+
   constructor(private _http: HttpClient) { }
    getAllUsers() 
    {
