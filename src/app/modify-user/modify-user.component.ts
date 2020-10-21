@@ -29,15 +29,15 @@ export class ModifyUserComponent implements OnInit {
 
   }
 
-  onSubmit(value: NgForm) {
+  async onSubmit(value: NgForm) {
     $("#saveModal").modal("hide");
-    this._userService.saveUser(value,this.id).subscribe(x=>console.log(x))
+    await this._userService.saveUser(value,this.id).subscribe(x=>console.log(x))
     this.router.navigate(['/view-users']);
 
   }
-  onDelete(){
+  async onDelete(){
     $("#deleteModal").modal("hide");
-    this._userService.deleteUser(this.id).subscribe(x=>console.log(x))
+    await this._userService.deleteUser(this.id).subscribe(x=>console.log(x))
     this.router.navigate(['/view-users']);
 
 
