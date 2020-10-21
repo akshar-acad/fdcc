@@ -1,5 +1,7 @@
 # Fdcc
 
+Front end Angular code for the challenge
+
 How to to run the project locally:
 
 1. Clone the project.
