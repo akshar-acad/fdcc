@@ -26,7 +26,7 @@
             </div>
             <div class="col-md-6 mb-3 ">
                 <label>Age</label>
-                <input type="text " class="form-control " [(ngModel)]="user.age" name="age" required ngModel>
+                <input type="number" class="form-control " [(ngModel)]="user.age" name="age" required ngModel>
 
             </div>
 
@@ -71,7 +71,7 @@
             <div class="form-row ">
                 <div class="col-md-6 mb-3 ">
                     <label>Amount</label>
-                    <input type="text " class="form-control " [(ngModel)]="user.order_total.amount" name="amount" required ngModel>
+                    <input type="number" class="form-control " [(ngModel)]="user.order_total.amount" name="amount" required ngModel>
 
                 </div>
                 <fieldset [disabled]="true">
